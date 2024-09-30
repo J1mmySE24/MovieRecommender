@@ -32,6 +32,8 @@ We forked this repo from this [link](https://github.com/A1231/MovieRecommender).
 5. **Platform Deployment**
    - Deploy the system on a server for broader public availability.
 
+Screen shot of the running system:
+![Screen shot of the running system](imgs/image.png)
 ---
 
 ![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)
