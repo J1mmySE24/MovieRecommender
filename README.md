@@ -1,8 +1,38 @@
 # <i>Movie Recommendation 🎥 </i>
     A collaborative filtering based recommendation engine!
 
+---
+## Team 96
+### Members
+* Jinming Xing 
+* Krisha Patel
+* Shreyas Devaraj
+---
+We forked this repo from this [link](https://github.com/A1231/MovieRecommender).
 
+### Existing Features
+- Recommendation system using collaborative filtering.
+- User login functionality.
+- Movie trailers available on YouTube.
 
+### Features to Add
+1. **User-Specific and Interactive Experiences**
+   - Improve login system to validate email legitimacy with verification codes, preventing mass account creation by attackers.
+   - Add social features: allow users to follow each other, leave comments, and notify users via email.
+
+2. **Enhanced Search Capabilities**
+   - Enable search by actor and genre to allow users more flexible ways to discover content.
+
+3. **Plot and Image Search**
+   - Implement plot-based and image-based search using a large language model (e.g., ChatGPT) to assist users who remember only part of the plot or have a screenshot.
+
+4. **Personalized Recommendation System**
+   - Incorporate user feedback into the recommendation model to provide evolving, user-specific suggestions.
+
+5. **Platform Deployment**
+   - Deploy the system on a server for broader public availability.
+
+---
 
 ![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)
 
