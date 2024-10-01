@@ -10,6 +10,10 @@
 ---
 We forked this repo from this [link](https://github.com/A1231/MovieRecommender).
 
+### Demo
+
+[![Watch the video](https://markdown-videos-api.jorgenkh.no/youtube/fKRjYqZlOTY)](https://www.youtube.com/watch?v=fKRjYqZlOTY)
+
 ### Existing Features
 - Recommendation system using collaborative filtering.
 - User login functionality.
@@ -32,8 +36,89 @@ We forked this repo from this [link](https://github.com/A1231/MovieRecommender).
 5. **Platform Deployment**
    - Deploy the system on a server for broader public availability.
 
-Screen shot of the running system:
-![Screen shot of the running system](imgs/image.png)
+### Test Suite
+Here are two main types of tests.
+
+#### Recommendations Tests
+* Test the accuracy of the recommendation results. Examples are shown below.
+```python
+def testRoboCop(self):
+        ts = [
+            {"title": "RoboCop (1987)", "rating": 5.0},
+        ]
+        recommendations = recommendForNewUser(ts)
+        self.assertTrue(("RoboCop 2 (1990)" in recommendations))
+
+def testDC(self):
+        ts = [
+            {"title": "Man of Steel (2013)", "rating": 5.0},
+        ]
+        recommendations = recommendForNewUser(ts)
+        self.assertTrue(
+            ("Batman v Superman: Dawn of Justice (2016)" in recommendations)
+        )
+```
+By checking whether the must-in movie is in the recommendation list, we conduct a preliminary test for the recommendation engine, making sure it does output reasonable relevant films.
+
+#### Web search Tests
+* When we search a movie like "Toy", we need to make sure the web scrawler could capture all relevant movies. Below are two examples:
+```python
+def testSearchToy(self):
+        search_word = "toy"
+        search = Search()
+        filtered_dict = search.resultsTop10(search_word)
+        expected_resp = [
+            "Toy Story (1995)",
+            "Toys (1992)",
+            "Toy Story 2 (1999)",
+            "Toy, The (1982)",
+            "Toy Soldiers (1991)",
+            "Toy Story 3 (2010)",
+            "Babes in Toyland (1961)",
+            "Babes in Toyland (1934)",
+        ]
+        self.assertTrue(filtered_dict == expected_resp)
+
+    def testSearchLove(self):
+        search_word = "love"
+        search = Search()
+        filtered_dict = search.resultsTop10(search_word)
+        expected_resp = [
+            "Love & Human Remains (1993)",
+            "Love Affair (1994)",
+            "Love and a .45 (1994)",
+            "Love in the Afternoon (1957)",
+            "Love Bug, The (1969)",
+            "Love Jones (1997)",
+            "Love and Other Catastrophes (1996)",
+            "Love Serenade (1996)",
+            "Love and Death on Long Island (1997)",
+            "Love Is the Devil (1998)",
+        ]
+        self.assertTrue(filtered_dict == expected_resp)
+```
+By checking whether all the relevant movies appear in the searching list, we can make sure the searching results are safe and complete.
+
+#### Future Tests
+Event though the current tests covered the main functions, the whole system still face the following potential problems.
+
+* The user login functionality.
+* The feedback function would fail when not all movies are responded.
+* The user homepage won't show anything if no feedback received.
+* The recommendation system needs further thorough tests, like involving a human to evaluate the quality of recommendations.
+* Tests for all added new features.
+
+### Screen shot of the running system:
+#### User Login Page
+![User Login Page](imgs/image.png)
+
+#### Main Page
+![Main Page](imgs/image-1.png)
+
+#### Recommendation Results
+![Recommendation Results](imgs/image-2.png)
+
+
 ---
 
 ![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)
